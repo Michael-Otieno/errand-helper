@@ -9,12 +9,18 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatIconModule} from '@angular/material/icon';
+import { VettingComponent } from './components/work/vetting/vetting.component';
+import { BookComponent } from './components/service/book/book.component';
+import { HomeComponent } from './components/common/home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent
+    NavbarComponent,
+    VettingComponent,
+    BookComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
