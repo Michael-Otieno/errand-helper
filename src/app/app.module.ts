@@ -14,6 +14,7 @@ import { BookComponent } from './components/service/book/book.component';
 import { HomeComponent } from './components/common/home/home.component';
 import { TestimonialComponent } from './components/common/home/testimonial/testimonial.component';
 import { FooterComponent } from './components/common/footer/footer.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FooterComponent } from './components/common/footer/footer.component';
     BookComponent,
     HomeComponent,
     TestimonialComponent,
-    FooterComponent
+    FooterComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
