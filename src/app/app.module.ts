@@ -13,6 +13,7 @@ import { VettingComponent } from './components/work/vetting/vetting.component';
 import { BookComponent } from './components/service/book/book.component';
 import { HomeComponent } from './components/common/home/home.component';
 import { TestimonialComponent } from './components/common/home/testimonial/testimonial.component';
+import { FooterComponent } from './components/common/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { TestimonialComponent } from './components/common/home/testimonial/testi
     VettingComponent,
     BookComponent,
     HomeComponent,
-    TestimonialComponent
+    TestimonialComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
