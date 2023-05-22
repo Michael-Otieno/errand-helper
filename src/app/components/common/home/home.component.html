@@ -6,8 +6,8 @@
       you can focus on your other important stuff.
     </p>
     <div class="btns">
-      <button>Learn More</button>
-      <button>Book Service</button>
+      <app-button [text]="'Learn More'" (OnClick)="signUp()" [btnClass]="'learn-more'"></app-button>
+      <app-button [text]="'Book Service'" (OnClick)="signUp()" [btnClass]="'book-service'"></app-button>
     </div>
   </div>
 </div>
