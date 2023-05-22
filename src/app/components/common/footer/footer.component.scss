@@ -1,0 +1,40 @@
+.angle{
+  width: 0;
+  height: 0;
+  border-left: 100vw solid transparent;
+  border-bottom: 19vw solid black;
+  margin-bottom: 0;
+  margin-top: 5vw;
+}
+.footer {
+  background-color: #000000;
+  text-align: center;
+  color: white;
+  padding: 2rem 0;
+  margin: 0;
+
+
+  .footer-links {
+    margin: 1rem 0;
+
+  }
+
+  p {
+    margin: 0;
+    font-family: 'Inter';
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    span {
+      margin: 0 1rem;
+    }
+
+    a {
+      text-decoration: none;
+      color: #ffff;
+      margin: 0 1rem;
+      padding: 2rem 0;
+    }
+  }
+}
