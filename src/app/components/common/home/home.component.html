@@ -1,1 +1,158 @@
-<p>home works!</p>
+<div class="hero-section">
+  <div class="hero-card">
+    <h1>Errand Helper</h1>
+    <p>
+      We do exactly as the name says. We run your errands so
+      you can focus on your other important stuff.
+    </p>
+    <div class="btns">
+      <button>Learn More</button>
+      <button>Book Service</button>
+    </div>
+  </div>
+</div>
+<div class="about-us">
+  <h2>About Us</h2>
+  <p>
+    In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of
+    a document or a typeface without relying on meaningful content. In publishing and graphic design, Lorem ipsum is a
+    placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on
+    meaningful content.
+  </p>
+  <h3>Services we offer include:</h3>
+  <ul>
+    <li>Pick & drop of documents and parcels</li>
+    <li>Queuing errands</li>
+    <li>Grocery shopping</li>
+    <li>Cheque and banking services</li>
+    <li>Nanny</li>
+    <li>Handyman</li>
+    <li>Escort to facilities e.g hospital</li>
+    <li>Services we offer include</li>
+    <li>Services we offer include</li>
+    <li>Services we offer include</li>
+  </ul>
+</div>
+<div class="how-it-works">
+  <h2>How it works</h2>
+  <p>
+    In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of
+    a document or a typeface without relying on meaningful content. In publishing and graphic design.
+  </p>
+  <div>
+    <h3>Booking our services?</h3>
+    <div class="steps">
+      <!-- step 1 -->
+      <div class="step">
+        <span class="circle">
+          <img src="../../../../assets/imgs/edit.png" alt="">
+        </span>
+        <h4>Step 1</h4>
+        <p>Fill in book a service form to generate a receipt</p>
+      </div>
+      <div class="arrow">
+        <img src="../../../../assets/imgs/arrow .png" alt="">
+      </div>
+      <!-- step 2 -->
+      <div class="step">
+        <span class="circle">
+          <img src="../../../../assets/imgs/edit.png" alt="">
+        </span>
+        <h4>Step 2</h4>
+        <p>Make the required payment.</p>
+      </div>
+      <div class="arrow">
+        <img src="../../../../assets/imgs/arrow .png" alt="">
+      </div>
+      <!-- step 3 -->
+      <div class="step">
+        <span class="circle">
+          <img src="../../../../assets/imgs/edit.png" alt="">
+        </span>
+        <h4>Step 3</h4>
+        <p>Submit your order to get
+          order tracking details. We
+          also keep in touch till your
+          order arrives or errand is
+          completed.</p>
+      </div>
+      <div class="arrow">
+        <img src="../../../../assets/imgs/arrow .png" alt="">
+      </div>
+      <!-- step 4 -->
+      <div class="step">
+        <span class="circle">
+          <img src="../../../../assets/imgs/edit.png" alt="">
+        </span>
+        <h4>Step 4</h4>
+        <p>Optional: Leave us a review.
+          We use your reviews to
+          rate our agents and improve
+          our services.</p>
+      </div>
+    </div>
+  </div>
+  <div class="book-steps">
+    <h3>Are you looking to work for us? Check requirements then:</h3>
+    <div class="steps">
+      <!-- step 1 -->
+      <div class="step">
+        <div>
+          <span class="circle">
+            <img src="../../../../assets/imgs/edit.png" alt="">
+          </span>
+          <h4>Step 1</h4>
+          <p>Sign Up</p>
+        </div>
+      </div>
+      <div class="arrow">
+        <img src="../../../../assets/imgs/arrow .png" alt="">
+      </div>
+      <!-- step 2 -->
+      <div class="step">
+        <span class="circle">
+          <img src="../../../../assets/imgs/edit.png" alt="">
+        </span>
+        <h4>Step 2</h4>
+        <p>Sign In.</p>
+      </div>
+      <div class="arrow">
+        <img src="../../../../assets/imgs/arrow .png" alt="">
+      </div>
+      <!-- step 3 -->
+      <div class="step">
+        <span class="circle">
+          <img src="../../../../assets/imgs/edit.png" alt="">
+        </span>
+        <h4>Step 3</h4>
+        <p>Fill in the vetting form and
+          wait for results via email.
+          If successful, proceed as
+          per email details.</p>
+      </div>
+      <div class="arrow">
+        <img src="../../../../assets/imgs/arrow .png" alt="">
+      </div>
+      <!-- step 4 -->
+      <div class="step">
+        <span class="circle">
+          <img src="../../../../assets/imgs/edit.png" alt="">
+        </span>
+        <h4>Step 4</h4>
+        <p>Update your details and
+          check notifications for
+          tasks. You’ll also be
+          contacted for tasks
+          via calls.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+<div class="testimonials-sections">
+  <h2>Testimonial</h2>
+  <div class="testimonials">
+    <app-testimonial *ngFor="let testimonial of testimonials; let i=index" [id]="testimonial.id"
+      [test]="testimonial"></app-testimonial>
+  </div>
+</div>
