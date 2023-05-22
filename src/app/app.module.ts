@@ -12,7 +12,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { VettingComponent } from './components/work/vetting/vetting.component';
 import { BookComponent } from './components/service/book/book.component';
 import { HomeComponent } from './components/common/home/home.component';
-
+import { TestimonialComponent } from './components/common/home/testimonial/testimonial.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +20,8 @@ import { HomeComponent } from './components/common/home/home.component';
     NavbarComponent,
     VettingComponent,
     BookComponent,
-    HomeComponent
+    HomeComponent,
+    TestimonialComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +29,8 @@ import { HomeComponent } from './components/common/home/home.component';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
