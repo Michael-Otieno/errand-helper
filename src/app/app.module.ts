@@ -16,6 +16,7 @@ import { TestimonialComponent } from './components/common/home/testimonial/testi
 import { FooterComponent } from './components/common/footer/footer.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { ButtonComponent } from './components/common/button/button.component';
+import { LoginComponent } from './components/auth/login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ButtonComponent } from './components/common/button/button.component';
     TestimonialComponent,
     FooterComponent,
     SignupComponent,
-    ButtonComponent
+    ButtonComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
