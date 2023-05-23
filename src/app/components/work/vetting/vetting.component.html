@@ -1,1 +1,118 @@
-<p>vetting works!</p>
+<app-navbar></app-navbar>
+<div class="hero">
+  <h1>Welcome to errand helper application</h1>
+  <p>
+    Errand Helper is an equal opportunity employer,
+    and we are committed to treating all employees
+    fairly. We never charge anyone a fee or a security
+    deposit during the application process.
+  </p>
+  <h3>We are looking for:</h3>
+  <ul>
+    <li>University/College going students.</li>
+    <li>Ambitious and dependable person.</li>
+    <li>You should have strong analytical, critical
+      thinking, good communication and problem solving.</li>
+  </ul>
+  <h3>Application process</h3>
+  <ul>
+    <li>Meet the above requirements.</li>
+    <li>Fill in the vetting form below.</li>
+    <li>If successful, you will receive confirmation email with the contract,
+      update you profile and check notifications.</li>
+    <li>If not successful, you will receive a notification.</li>
+  </ul>
+</div>
+<div class="form-terms">
+  <div class="vetting-form">
+    <h3>Vetting Form</h3>
+    <div class="details">
+      <h5>Kindly fill in all the details</h5>
+      <form>
+        <div class="personal-details">
+          <div class="id">
+            <label for="id-number">ID/PPT number:</label>
+            <input type="text">
+          </div>
+          <div class="id">
+            <label for="id-number">Phone number:</label>
+            <input type="text">
+          </div>
+          <div class="id">
+            <label for="id-number">Local area:</label>
+            <input type="text">
+          </div>
+        </div>
+        <div class="full-input">
+          <label for="id-number">Describe your familiarity with local area and your knowledge of most efficient routes:</label>
+          <input type="text">
+        </div>
+        <div class="full-input">
+          <label for="id-number">How would you ensure safety and security of the items or errands you are in charge of:</label>
+          <input type="text">
+        </div>
+        <div class="full-input">
+          <label for="id-number">What steps would you take if you encountered a problem such as delay or wrong
+            address during a tasks:</label>
+          <input type="text">
+        </div>
+        <div class="full-input">
+          <label for="id-number">Can you describe your customer service skills and how would you handle interactions
+            with clients:</label>
+          <input type="text">
+        </div>
+        <div class="full-input">
+          <label for="id-number">Are you comfortable using navigation tools or GPS systems to find delivery locations
+            or run errands efficiently?</label>
+          <input type="text">
+        </div>
+        <div class="full-input">
+          <label for="id-number">Do you have any physical limitations or restrictions that may affect your ability to perform
+            the tasks required for this job?</label>
+          <input type="text">
+        </div>
+        <div class="full-input">
+          <label for="id-number">Are you available to work flexible hours, including evenings, weekends or holidays?</label>
+          <input type="text">
+        </div>
+        <div class="full-input">
+          <label for="id-number">How do you handle stressful situations or time-sensitive errands?</label>
+          <input type="text">
+        </div>
+        <div class="full-input">
+          <label for="id-number">Are you comfortable using delivery or logistics software to track packages, manage routes, or update delivery statuses?</label>
+          <input type="text">
+        </div>
+        <div class="full-input">
+          <label for="id-number">What measures would you take to ensure the privacy and confidentiality of any sensitive information or items you may handle during deliveries or errands?</label>
+          <input type="text">
+        </div>
+        <div class="file-input">
+          <label for="id-number">Upload ID  photo and passport size photo</label>
+          <div>
+            <input type="file">
+            <input type="file">
+          </div>
+        </div>
+        <div class="btn">
+          <app-button [text]="'Submit'" (OnClick)="submit()" [btnClass]="'learn-more'"></app-button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="terms">
+    <h3>Terms and conditions</h3>
+    <p>
+      Terms of service (also known as terms of use and
+      terms and conditions, commonly abbreviated as TOS
+      or ToS, ToU or T&C) are the legal agreements
+      between a service provider and a person who wants
+      to use that service. The person must agree to abide
+      by the terms of service in order to use the offered service.[1]
+      Terms of service can also be merely a disclaimer, especially regarding
+      the use of websites. Vague language and lengthy sentences used in the terms
+      of use have brought concerns on customer privacy and raised public awareness in many ways.
+    </p>
+  </div>
+</div>
+<app-footer></app-footer>
