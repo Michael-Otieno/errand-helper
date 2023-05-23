@@ -1,0 +1,46 @@
+mat-toolbar {
+  font-size: 14px;
+  font-family: Inter;
+  font-weight: 400;
+  padding: 2.3rem 4rem;
+
+  span{
+    font-size: 24px;
+  }
+
+  .spacer {
+    flex: 1 1 auto;
+  }
+
+  a {
+    font-weight: 400;
+    color: #ffff;
+    text-decoration: none;
+  }
+
+}
+
+::ng-deep .mat-toolbar.mat-primary {
+  background: black;
+
+}
+
+::ng-deep .mat-mdc-button .mdc-button__label, .mat-mdc-unelevated-button .mdc-button__label, .mat-mdc-raised-button .mdc-button__label, .mat-mdc-outlined-button .mdc-button__label {
+  font-size: 14px;
+}
+::ng-deep .mat-mdc-button .mdc-button__label, .mat-mdc-unelevated-button .mdc-button__label, .mat-mdc-raised-button .mdc-button__label, .mat-mdc-outlined-button .mdc-button__label {
+  margin-right: 1rem;
+}
+
+@media only screen and (max-width:400px) {
+  mat-toolbar {
+    padding: 1rem .8rem;
+
+    span{
+      font-size: 16px;
+    }
+  }
+  ::ng-deep .mat-mdc-button .mdc-button__label, .mat-mdc-unelevated-button .mdc-button__label, .mat-mdc-raised-button .mdc-button__label, .mat-mdc-outlined-button .mdc-button__label {
+    margin-right: 0rem;
+  }
+}

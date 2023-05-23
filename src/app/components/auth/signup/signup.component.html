@@ -1,0 +1,62 @@
+<div class="signup">
+  <div class="text">
+    <h1>Don't have an account?</h1>
+    <p>
+      Register and login then submit your required information to receive a contract and begin working with us.
+    </p>
+    <div class="icons">
+      <span>
+        <img src="../../../../assets/icons/facebookdark.png" alt="facebook logo">
+      </span>
+      <span>
+        <img src="../../../../assets/icons/twitterdark.png" alt="twitter logo">
+      </span>
+      <span>
+        <img src="../../../../assets/icons/instagramdark.png" alt="instagram logo">
+      </span>
+      <span>
+        <img src="../../../../assets/icons/linkedindark.png" alt="linkedin logo">
+      </span>
+    </div>
+  </div>
+  <div class="form">
+    <div>
+      <form>
+        <div class="names">
+          <div class="input-firstname">
+            <label for="firstname">First Name</label><br/>
+            <input type="text">
+          </div>
+          <div class="input-lastname">
+            <label for="lastname">Last Name</label><br/>
+            <input type="text">
+          </div>
+        </div>
+        <div class="email">
+          <label for="email">Email</label><br/>
+          <input type="email">
+        </div>
+        <div class="password">
+          <label for="password">Password</label><br/>
+          <input type="password">
+        </div>
+        <div class="confirm-password">
+          <label for="confirm password">Confirm password</label><br/>
+          <input type="password">
+        </div>
+        <div class="checkbox">
+          <input type="checkbox">
+          <label for="terms">I agree to Terms and Conditions</label>
+        </div>
+        <div class="sign-up-btns">
+          <app-button [text]="'Sign up'" (OnClick)="signUp()" [btnClass]="'btnClass'"></app-button>
+          <p>Have an account? <a routerLink="/login">Login</a></p>
+        </div>
+      </form>
+      <div class="google-phone">
+        <app-button [text]="'Sign up with Google'" (OnClick)="signUp()" [btnClass]="'google'"></app-button>
+        <app-button [text]="'Sign up with Phone number'" (OnClick)="signUp()" [btnClass]="'phone'"></app-button>
+      </div>
+    </div>
+  </div>
+</div>

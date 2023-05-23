@@ -1,0 +1,43 @@
+<div class="signup">
+  <div class="text">
+    <h1>Welcome!</h1>
+    <p>
+      Sign in to access your profile. Examine client feedback and make improvements to the negative comments.    </p>
+    <div class="icons">
+      <span>
+        <img src="../../../../assets/icons/facebookdark.png" alt="facebook logo">
+      </span>
+      <span>
+        <img src="../../../../assets/icons/twitterdark.png" alt="twitter logo">
+      </span>
+      <span>
+        <img src="../../../../assets/icons/instagramdark.png" alt="instagram logo">
+      </span>
+      <span>
+        <img src="../../../../assets/icons/linkedindark.png" alt="linkedin logo">
+      </span>
+    </div>
+  </div>
+  <div class="form">
+    <div>
+      <form>
+        <div class="email">
+          <label for="email">Email</label><br/>
+          <input type="email">
+        </div>
+        <div class="password">
+          <label for="password">Password</label><br/>
+          <input type="password">
+        </div>
+        <div class="sign-up-btns">
+          <app-button [text]="'Sign in'" (OnClick)="signUp()" [btnClass]="'btnClass'"></app-button>
+          <p>Don't have an account? <a routerLink="/signup">Register</a></p>
+        </div>
+      </form>
+      <div class="google-phone">
+        <app-button [text]="'Sign in with Google'" (OnClick)="signUp()" [btnClass]="'google'"></app-button>
+        <app-button class="phone" [text]="'Sign in with Phone number'" (OnClick)="signUp()" [btnClass]="'phone'"></app-button>
+      </div>
+    </div>
+  </div>
+</div>
