@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./vetting.component.scss']
 })
 export class VettingComponent {
+submit() {
+throw new Error('Method not implemented.');
+}
 
 }
