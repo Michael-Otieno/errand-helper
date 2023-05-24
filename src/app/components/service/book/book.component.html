@@ -1,1 +1,83 @@
-<p>book works!</p>
+<app-navbar></app-navbar>
+<div class="hero">
+  <h1>Welcome to errand helper application</h1>
+  <p>
+    Enjoy the convenience and piece of mind that comes with our superior errand service and delivery solutions. Our dependable team is here to lightn your load,
+    whether it’s shopping or running important errands.
+  </p>
+  <p>
+    Book our services today and let us handle the details while you concentrate on what matters.
+  </p>
+  <p>
+    Contact us today and say goodbye to stress and hello to efficiency.
+  </p>
+</div>
+<div class="form-terms">
+  <div class="vetting-form">
+    <div class="title">
+      <h3>
+        <a routerLink="/book">Book service form</a>
+      </h3>
+      <h3>
+        <a routerLink="/review">Leave Review</a>
+      </h3>
+    </div>
+    <div class="details">
+      <h5>Kindly fill in all the details</h5>
+      <form>
+        <div class="personal-details">
+          <div class="id">
+            <label for="id-number">Name:</label>
+            <input type="text">
+          </div>
+          <div class="id">
+            <label for="id-number">Phone number:</label>
+            <input type="text">
+          </div>
+          <div class="id">
+            <label for="id-number">Email:</label>
+            <input type="text">
+          </div>
+        </div>
+        <div class="full-input">
+          <label for="id-number">Type of service (e.g grocery shopping, dry cleaning pickup, etc):</label>
+          <input type="text">
+        </div>
+        <div class="full-input">
+          <label for="id-number">Date and Time of service (e.g I need it done on 10/12/2022 at 10:30 am.):</label>
+          <input type="text">
+        </div>
+        <div class="full-input">
+          <label for="id-number">Description of errands to be performed (e.g list of grocery items, specific stores to visit):</label>
+          <input type="text">
+        </div>
+        <div class="full-input">
+          <label for="id-number">Any additional information?:</label>
+          <input type="text">
+        </div>
+        <div class="full-input">
+          <label for="id-number">Delivery address:</label>
+          <input type="text">
+        </div>
+        <div class="btn">
+          <app-button [text]="'Submit'" (OnClick)="submit()" [btnClass]="'learn-more'"></app-button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="terms">
+    <h3>Terms and conditions</h3>
+    <p>
+      Terms of service (also known as terms of use and
+      terms and conditions, commonly abbreviated as TOS
+      or ToS, ToU or T&C) are the legal agreements
+      between a service provider and a person who wants
+      to use that service. The person must agree to abide
+      by the terms of service in order to use the offered service.[1]
+      Terms of service can also be merely a disclaimer, especially regarding
+      the use of websites. Vague language and lengthy sentences used in the terms
+      of use have brought concerns on customer privacy and raised public awareness in many ways.
+    </p>
+  </div>
+</div>
+<app-footer></app-footer>

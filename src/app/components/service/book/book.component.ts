@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./book.component.scss']
 })
 export class BookComponent {
+submit() {
+throw new Error('Method not implemented.');
+}
 
 }
