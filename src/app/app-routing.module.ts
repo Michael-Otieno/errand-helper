@@ -6,6 +6,7 @@ import { BookComponent } from './components/service/book/book.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { ProfileComponent } from './components/work/profile/profile.component';
+import { NotificationComponent } from './components/work/notification/notification.component';
 
 const routes: Routes = [
   {path:'home', component:HomeComponent},
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'vetting', component:VettingComponent},
   {path:'profile', component:ProfileComponent},
+  {path:'notifications', component:NotificationComponent},
   {path:'book', component:BookComponent}
 
 
