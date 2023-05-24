@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./notification.component.scss']
 })
 export class NotificationComponent {
+submit() {
+throw new Error('Method not implemented.');
+}
 
 }
