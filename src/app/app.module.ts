@@ -17,6 +17,7 @@ import { FooterComponent } from './components/common/footer/footer.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { ButtonComponent } from './components/common/button/button.component';
 import { LoginComponent } from './components/auth/login/login.component';
+import { ProfileComponent } from './components/work/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { LoginComponent } from './components/auth/login/login.component';
     FooterComponent,
     SignupComponent,
     ButtonComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
