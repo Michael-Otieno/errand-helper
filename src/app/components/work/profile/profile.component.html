@@ -1,1 +1,70 @@
-<p>profile works!</p>
+<app-navbar></app-navbar>
+<div class="settings">
+  <h1>Settings</h1>
+  <div class="profile">
+    <div class="profile-links">
+      <p><a routerLink="/profile" routerLinkActive="active">Profile</a></p>
+      <p> <a routerLink="/notifications" routerLinkActive="active">Notifications</a> </p>
+    </div>
+    <div class="profile-details">
+      <img src="../../../../assets/imgs/profile.png" alt="">
+      <form>
+        <!-- names -->
+        <div class="inputs">
+          <label for="names">Full name: </label>
+          <div class="input-names">
+            <input type="text">
+            <input type="text">
+          </div>
+        </div>
+        <!-- email -->
+        <div class="inputs">
+          <label for="email">Email: </label>
+          <div class="input-email">
+            <input type="text">
+          </div>
+        </div>
+        <!-- phone -->
+        <div class="inputs">
+          <label for="email">Phone no: </label>
+          <div class="input-phone">
+            <input type="text">
+          </div>
+        </div>
+        <!-- ID/PPT no -->
+        <div class="inputs">
+          <label for="email">ID/PPT no: </label>
+          <div class="input-phone">
+            <input type="text">
+          </div>
+        </div>
+        <!-- location -->
+        <div class="inputs">
+          <label for="email">Location: </label>
+          <div class="input-phone">
+            <input type="text">
+          </div>
+        </div>
+        <!-- bio -->
+        <div class="inputs-textarea">
+          <label for="email">Bio: </label>
+          <div class="input-textarea">
+            <textarea cols="20" rows="5"></textarea>
+          </div>
+        </div>
+        <!-- id -->
+        <div class="inputs">
+          <label for="email">ID/PPT photo: </label>
+          <div class="input-phone">
+            <input type="file">
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="profile-btns">
+      <app-button [text]="'update'" (OnClick)="submit()" [btnClass]="'learn-more'"></app-button>
+      <app-button [text]="'delete'" (OnClick)="submit()" [btnClass]="'delete'"></app-button>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>
