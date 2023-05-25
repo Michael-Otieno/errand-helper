@@ -9,7 +9,7 @@ import { ProfileComponent } from './components/work/profile/profile.component';
 import { NotificationComponent } from './components/work/notification/notification.component';
 
 const routes: Routes = [
-  {path:'home', component:HomeComponent},
+  {path:'',pathMatch:'full', component:HomeComponent},
   {path:'signup', component:SignupComponent},
   {path:'login', component:LoginComponent},
   {path:'vetting', component:VettingComponent},
