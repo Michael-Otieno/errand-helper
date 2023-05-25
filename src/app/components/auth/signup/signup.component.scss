@@ -114,7 +114,20 @@
       justify-content: space-between;
       align-items: center;
       margin-block: 1rem;
+      .btnClass {
+        font-family: 'Inter';
+        font-weight: 400;
+        line-height: 22px;
+        color: #FFFFFF;
+        width: 146px;
+        height: 29.79px;
+        background: #47A668;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        cursor: pointer;
 
+      }
 
     }
 
