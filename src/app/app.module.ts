@@ -10,6 +10,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {AngularFireModule} from '@angular/fire/compat';
 import {AngularFireAuthModule} from '@angular/fire/compat/auth';
 import { environment } from 'src/environments/environment.development';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -49,7 +50,8 @@ import { NotificationComponent } from './components/work/notification/notificati
     MatIconModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
 
   ],
 
