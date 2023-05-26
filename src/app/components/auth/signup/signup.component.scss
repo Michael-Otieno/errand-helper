@@ -139,6 +139,20 @@
     align-items: center;
     margin-block: 1rem;
 
+    .google {
+      font-family: 'Inter';
+      font-weight: 400;
+      line-height: 22px;
+      color: #FFFFFF;
+      border-radius: 5px;
+      outline: none;
+      border: none;
+      cursor: pointer;
+      width: 178px;
+      height: 30px;
+      background: #C04C34
+    }
+
 
   }
 
