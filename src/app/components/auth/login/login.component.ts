@@ -16,10 +16,6 @@ export class LoginComponent {
   constructor(private fb: FormBuilder,private authService:AuthService,private router:Router) {}
 
 
-  login(){
-    console.log(this.loginForm.value);
-
-  }
   loginWithGoogle(){
     this.authService.loginWithGoogle().then((res:any)=>{
       this.router.navigateByUrl('/')
@@ -27,6 +23,16 @@ export class LoginComponent {
       console.log(err)
     })
   }
+
+  loginWithEmailAndPassword(){
+    const userData = Object.assign(this.loginForm.value)
+    this.authService.loginWithEmailAndPassword(userData).then((res:any) => {
+      this.router.navigateByUrl('/');
+    }).catch((err:any)=>{
+      console.log(err)
+    })
+  }
+
   signUp() {
     console.log('sign up');
   }

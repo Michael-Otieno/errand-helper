@@ -20,7 +20,7 @@
   </div>
   <div class="form">
     <div>
-      <form [formGroup]="loginForm" (ngSubmit)="login()">
+      <form [formGroup]="loginForm">
         <div class="email">
           <label for="email">Email</label><br/>
           <input id="email" type="email" formControlName="email">
@@ -30,7 +30,7 @@
           <input id="password" type="password" formControlName="password">
         </div>
         <div class="sign-up-btns">
-          <button class="btnClass" type="submit" [disabled]="!loginForm.valid">Sign up</button>
+          <button class="btnClass" (click)="loginWithEmailAndPassword()" type="submit" [disabled]="!loginForm.valid">Sign in</button>
           <p>Don't have an account? <a routerLink="/signup">Register</a></p>
         </div>
       </form>

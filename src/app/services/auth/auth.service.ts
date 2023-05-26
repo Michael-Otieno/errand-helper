@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
 import {GoogleAuthProvider} from '@firebase/auth';
 
 @Injectable({
@@ -7,18 +8,19 @@ import {GoogleAuthProvider} from '@firebase/auth';
 })
 export class AuthService {
 
-  constructor(private afs:AngularFireAuth) { }
+  constructor(private afA:AngularFireAuth,private afDB: AngularFireDatabase) { }
 
   loginWithGoogle(){
-    return this.afs.signInWithPopup(new GoogleAuthProvider());
+    return this.afA.signInWithPopup(new GoogleAuthProvider());
   }
 
-  registerWithDetails(user:{email:string,password:string}){
-    return this.afs.createUserWithEmailAndPassword(user.email,user.password)
+  registerWithDetails(user:{firstName: string, lastName: string, email: string, terms: string, password: string, confirmPassword: string}){
+    return this.afA.createUserWithEmailAndPassword(user.email,user.password)
   }
+
 
   loginWithEmailAndPassword(user:{email:string,password:string}){
-    return this.afs.signInWithEmailAndPassword(user.email,user.password)
+    return this.afA.signInWithEmailAndPassword(user.email,user.password)
   }
 
 

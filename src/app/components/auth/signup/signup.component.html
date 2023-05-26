@@ -21,7 +21,7 @@
   </div>
   <div class="form">
     <div>
-      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="signupForm" (ngSubmit)="signUpWithEmailAndPassword()">
         <div class="names">
           <div class="input-firstname">
             <label for="firstname">First Name</label><br/>
@@ -54,8 +54,8 @@
         </div>
       </form>
       <div class="google-phone">
-        <app-button [text]="'Sign up with Google'" (OnClick)="signUp()" [btnClass]="'google'"></app-button>
-        <app-button [text]="'Sign up with Phone number'" (OnClick)="signUp()" [btnClass]="'phone'"></app-button>
+        <app-button [text]="'Sign up with Google'" (OnClick)="onSubmit()" [btnClass]="'google'"></app-button>
+        <app-button [text]="'Sign up with Phone number'" (OnClick)="onSubmit()" [btnClass]="'phone'"></app-button>
       </div>
     </div>
   </div>
