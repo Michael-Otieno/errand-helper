@@ -6,7 +6,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/common/navbar/navbar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import {AngularFireModule} from '@angular/fire/compat';
+import {AngularFireAuthModule} from '@angular/fire/compat/auth';
+import { environment } from 'src/environments/environment.development';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -43,9 +46,13 @@ import { NotificationComponent } from './components/work/notification/notificati
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
-    MatIconModule,FormsModule, ReactiveFormsModule
+    MatIconModule,
+    ReactiveFormsModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireAuthModule
 
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })

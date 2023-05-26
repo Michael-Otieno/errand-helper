@@ -20,22 +20,22 @@
   </div>
   <div class="form">
     <div>
-      <form>
+      <form [formGroup]="loginForm" (ngSubmit)="login()">
         <div class="email">
           <label for="email">Email</label><br/>
-          <input type="email">
+          <input id="email" type="email" formControlName="email">
         </div>
         <div class="password">
           <label for="password">Password</label><br/>
-          <input type="password">
+          <input id="password" type="password" formControlName="password">
         </div>
         <div class="sign-up-btns">
-          <app-button [text]="'Sign in'" (OnClick)="signUp()" [btnClass]="'btnClass'"></app-button>
+          <button class="btnClass" type="submit" [disabled]="!loginForm.valid">Sign up</button>
           <p>Don't have an account? <a routerLink="/signup">Register</a></p>
         </div>
       </form>
       <div class="google-phone">
-        <app-button [text]="'Sign in with Google'" (OnClick)="signUp()" [btnClass]="'google'"></app-button>
+        <button class="google" type="submit" (click)="loginWithGoogle()">Sign in with Google'</button>
         <app-button class="phone" [text]="'Sign in with Phone number'" (OnClick)="signUp()" [btnClass]="'phone'"></app-button>
       </div>
     </div>
