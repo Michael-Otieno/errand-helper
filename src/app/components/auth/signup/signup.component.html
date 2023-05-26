@@ -21,41 +21,41 @@
   </div>
   <div class="form">
     <div>
-      <form>
+      <form [formGroup]="signupForm" (ngSubmit)="signUpWithEmailAndPassword()">
         <div class="names">
           <div class="input-firstname">
             <label for="firstname">First Name</label><br/>
-            <input type="text">
+            <input id="first-name" type="text" formControlName="firstName">
           </div>
           <div class="input-lastname">
             <label for="lastname">Last Name</label><br/>
-            <input type="text">
+            <input id="last-name" type="text" formControlName="lastName">
           </div>
         </div>
         <div class="email">
           <label for="email">Email</label><br/>
-          <input type="email">
+          <input id="email" type="text" formControlName="email">
         </div>
         <div class="password">
           <label for="password">Password</label><br/>
-          <input type="password">
+          <input id="password" type="password" formControlName="password">
         </div>
         <div class="confirm-password">
           <label for="confirm password">Confirm password</label><br/>
-          <input type="password">
+          <input id="confirm-password" type="password" formControlName="confirmPassword">
         </div>
         <div class="checkbox">
-          <input type="checkbox">
+          <input id="terms" type="checkbox" formControlName="terms">
           <label for="terms">I agree to Terms and Conditions</label>
         </div>
         <div class="sign-up-btns">
-          <app-button [text]="'Sign up'" (OnClick)="signUp()" [btnClass]="'btnClass'"></app-button>
+          <button class="btnClass" type="submit" [disabled]="!signupForm.valid">Sign up</button>
           <p>Have an account? <a routerLink="/login">Login</a></p>
         </div>
       </form>
       <div class="google-phone">
-        <app-button [text]="'Sign up with Google'" (OnClick)="signUp()" [btnClass]="'google'"></app-button>
-        <app-button [text]="'Sign up with Phone number'" (OnClick)="signUp()" [btnClass]="'phone'"></app-button>
+        <button class="google" type="submit" >Sign up with Google</button>
+        <app-button [text]="'Sign up with Phone number'" (OnClick)="onSubmit()" [btnClass]="'phone'"></app-button>
       </div>
     </div>
   </div>
