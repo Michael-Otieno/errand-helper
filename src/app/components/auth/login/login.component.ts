@@ -19,6 +19,8 @@ export class LoginComponent {
   loginWithGoogle(){
     this.authService.loginWithGoogle().then((res:any)=>{
       this.router.navigateByUrl('/')
+      localStorage.setItem('user', JSON.stringify(res.user));
+
     }).catch((err:any)=>{
       console.log(err)
     })
@@ -28,6 +30,7 @@ export class LoginComponent {
     const userData = Object.assign(this.loginForm.value)
     this.authService.loginWithEmailAndPassword(userData).then((res:any) => {
       this.router.navigateByUrl('/');
+      localStorage.setItem('user', JSON.stringify(res.user));
     }).catch((err:any)=>{
       console.log(err)
     })
