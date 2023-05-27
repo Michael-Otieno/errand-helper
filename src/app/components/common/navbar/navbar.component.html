@@ -1,7 +1,7 @@
 <mat-toolbar color="primary" class="mat-elevation-z6">
   <a routerLink="/">Errand Helper</a>
   <div class="spacer"></div>
-  <a *ngIf="isLoggedIn; else loggedIn" mat-button routerLink="/signup">Work for us</a>
+  <a *ngIf="!isLoggedIn; else loggedIn" mat-button routerLink="/signup">Work for us</a>
   <ng-template #loggedIn>
     <button mat-button [matMenuTriggerFor]="menu">
       <div class="dropdown">
@@ -15,6 +15,9 @@
       </p>
       <p  class="dropdown-menu">
         <a mat-button routerLink="/notifications">Notifications</a>
+      </p>
+      <p  class="dropdown-menu">
+        <a mat-button routerLink="/">Logout</a>
       </p>
     </mat-menu>
   </ng-template>
