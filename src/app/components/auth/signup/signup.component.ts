@@ -15,30 +15,37 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 })
 export class SignupComponent {
 
-  email!: string;
-  password!: string;
-
   signupForm = this.fb.group({
-    firstName: ['',Validators.required],
-    lastName: ['',Validators.required],
-    email: ['',[Validators.required,Validators.email]],
-    terms: ['',Validators.required],
-    password: ['',Validators.required],
-    confirmPassword: ['',Validators.required],
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    email: ['', [Validators.required, Validators.email]],
+    terms: ['', Validators.required],
+    password: ['', Validators.required],
+    confirmPassword: ['', Validators.required],
   });
-  constructor(private fb: FormBuilder,private authService:AuthService,private router:Router) {}
+  constructor(
+    private fb: FormBuilder,
+    private authService: AuthService,
+    private router: Router
+  ) {}
+
+  register() {
+    const frm = this.signupForm.value;
+
+    const user = {
+      firstName:frm.firstName!,
+      lastName:frm.lastName!,
+      email: frm.email!,
+      terms:frm.terms!,
+      password:frm.password!,
+      confirmPassword:frm.confirmPassword!
 
 
+    };
 
-
-  signUpWithEmailAndPassword(){
-    const userData = Object.assign(this.signupForm.value)
-    this.authService.registerWithDetails(userData).then((res:any) => {
-      this.router.navigateByUrl('/login');
-    }).catch((err:any)=>{
-      console.log(err)
-    })
+    this.authService.SignUp(user)
   }
+
 
   onSubmit() {
     console.log(this.signupForm.value);
