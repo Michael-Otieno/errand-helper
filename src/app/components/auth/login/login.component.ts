@@ -9,31 +9,25 @@ import { AuthService } from 'src/app/services/auth/auth.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
+
+  isLoggedIn:boolean = false;
+
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
   });
   constructor(private fb: FormBuilder,private authService:AuthService,private router:Router) {}
 
+  login(){
+    const frm = this.loginForm.value;
+    const email:string = frm.email!
+    const password:string = frm.password!
 
-  loginWithGoogle(){
-    this.authService.loginWithGoogle().then((res:any)=>{
-      this.router.navigateByUrl('/')
-      localStorage.setItem('user', JSON.stringify(res.user));
+    this.authService.SignIn(email, password);
 
-    }).catch((err:any)=>{
-      console.log(err)
-    })
   }
-
-  loginWithEmailAndPassword(){
-    const userData = Object.assign(this.loginForm.value)
-    this.authService.loginWithEmailAndPassword(userData).then((res:any) => {
-      this.router.navigateByUrl('/');
-      localStorage.setItem('user', JSON.stringify(res.user));
-    }).catch((err:any)=>{
-      console.log(err)
-    })
+  loginWithGoogle(){
+    this.authService.GoogleAuth()
   }
 
   signUp() {
