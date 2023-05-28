@@ -1,25 +1,29 @@
 <mat-toolbar color="primary" class="mat-elevation-z6">
   <a routerLink="/">Errand Helper</a>
   <div class="spacer"></div>
-  <a *ngIf="!isLoggedIn; else loggedIn" mat-button routerLink="/signup">Work for us</a>
-  <ng-template #loggedIn>
-    <button mat-button [matMenuTriggerFor]="menu">
-      <div class="dropdown">
-        <span>Settings</span>
-        <i class="material-icons">arrow_drop_down</i>
-      </div>
-    </button>
-    <mat-menu #menu="matMenu">
-      <p  class="dropdown-menu">
-        <a mat-button routerLink="/profile">Profile</a>
-      </p>
-      <p  class="dropdown-menu">
-        <a mat-button routerLink="/notifications">Notifications</a>
-      </p>
-      <p  class="dropdown-menu">
-        <a mat-button routerLink="/">Logout</a>
-      </p>
-    </mat-menu>
-  </ng-template>
+  <div [ngSwitch]="menuType">
+    <div *ngSwitchCase="'default'">
+      <a mat-button routerLink="/signup">Work for us</a>
+    </div>
+    <div *ngSwitchCase="'authenticated'">
+      <button mat-button [matMenuTriggerFor]="menu">
+        <div class="dropdown">
+          <span>Settings</span>
+          <i class="material-icons">arrow_drop_down</i>
+        </div>
+      </button>
+      <mat-menu #menu="matMenu">
+        <p class="dropdown-menu">
+          <a mat-button routerLink="/profile">Profile</a>
+        </p>
+        <p class="dropdown-menu">
+          <a mat-button routerLink="/notifications">Notifications</a>
+        </p>
+        <p class="dropdown-menu">
+          <a mat-button routerLink="/">Logout</a>
+        </p>
+      </mat-menu>
+    </div>
+  </div>
   <a mat-button routerLink="/book">Book a service</a>
 </mat-toolbar>

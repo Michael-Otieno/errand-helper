@@ -73,6 +73,25 @@ export class AuthService {
       });
   }
 
+  GoogleAuth() {
+    return this.AuthLogin(new auth.GoogleAuthProvider()).then((res: any) => {
+      this.route.navigateByUrl('/');
+    });
+  }
+
+  // Auth logic to run auth providers
+  AuthLogin(provider: any) {
+    return this.afa
+      .signInWithPopup(provider)
+      .then((result: { user: any; }) => {
+        this.route.navigate(['dashboard']);
+        this.SetUserData(result.user);
+      })
+      .catch((error: any) => {
+        window.alert(error);
+      });
+  }
+
 
   SetUserData(user: any) {
     const userRef: AngularFirestoreDocument<any> = this.afs.doc(
