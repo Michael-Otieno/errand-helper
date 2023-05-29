@@ -1,7 +1,8 @@
 export interface User{
-  uid?: string;
-  firstName?:string;
-  lastName?:string;
-  email?: string;
+  uid?: any;
+  firstName:string;
+  lastName:string;
+  email:string;
   emailVerified: boolean;
+  password:string;
 }

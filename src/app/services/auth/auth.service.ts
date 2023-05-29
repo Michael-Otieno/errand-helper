@@ -1,9 +1,9 @@
-import { Injectable, NgZone } from '@angular/core';
+import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
-import { AngularFireDatabase } from '@angular/fire/compat/database';
-// import {GoogleAuthProvider} from '@firebase/auth';
 import { User } from 'src/app/interfaces/user.interface';
 import * as auth from '@firebase/auth';
+import { Observable, BehaviorSubject, map } from 'rxjs';
+
 
 import {
   AngularFirestore,
@@ -15,22 +15,26 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
+
+  private currentUserSubject: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
+  public currentUser$: Observable<User | null> = this.currentUserSubject.asObservable();
+
+
   userData: any;
+
 
   constructor(
     private afs: AngularFirestore,
     private afa: AngularFireAuth,
     private route: Router,
-    private ngz: NgZone
   ) {
     this.afa.authState.subscribe((user) => {
       if (user) {
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user')!);
+        this.getUserData(user.uid).subscribe((userData) => {
+          this.currentUserSubject.next(userData);
+        });
       } else {
-        localStorage.setItem('user', 'null');
-        JSON.parse(localStorage.getItem('user')!);
+        this.currentUserSubject.next(null);
       }
     });
   }
@@ -40,10 +44,10 @@ export class AuthService {
     return this.afa
       .signInWithEmailAndPassword(email, password)
       .then((res) => {
-        this.SetUserData(res.user);
+        // this.setUserData(res.credential);
         this.afa.authState.subscribe((user) => {
           if (user) {
-            this.route.navigateByUrl('/');
+            this.route.navigateByUrl('/profile');
           }
         });
       })
@@ -52,16 +56,34 @@ export class AuthService {
       });
   }
 
-  // Sign up with email/password
-  SignUp(user:{firstName: string, lastName: string, email: string, terms: string, password: string, confirmPassword: string}) {
-    return this.afa
-      .createUserWithEmailAndPassword(user.email, user.password)
-      .then((res) => {
-        this.SendVerificationMail();
-        this.SetUserData(res.user);
-        this.route.navigateByUrl('/login');
-        return
+
+
+  async signUp(user: User): Promise<void> {
+    try {
+      const { email, password, firstName, lastName } = user;
+      const userCredential = await this.afa.createUserWithEmailAndPassword(
+        email,
+        password
+      );
+
+      await userCredential.user?.updateProfile({
+        displayName: `${firstName} ${lastName}`,
       });
+
+      const userData: User = {
+        email: user.email,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        emailVerified:false,
+        password: '', // Do not store the password in Firestore
+        uid: userCredential.user?.uid,
+      };
+
+      await this.setUserData(userData);
+    } catch (error) {
+      // Handle error here
+      console.log('Sign up error:', error);
+    }
   }
 
   // Send email verfificaiton when new user sign up
@@ -69,7 +91,7 @@ export class AuthService {
     return this.afa.currentUser
       .then((user: any) => user.sendEmailVerification())
       .then(() => {
-        this.route.navigateByUrl('/');
+        this.route.navigateByUrl('/login');
       });
   }
 
@@ -85,27 +107,35 @@ export class AuthService {
       .signInWithPopup(provider)
       .then((result: { user: any; }) => {
         this.route.navigate(['dashboard']);
-        this.SetUserData(result.user);
+        this.setUserData(result.user);
       })
       .catch((error: any) => {
         window.alert(error);
       });
   }
 
-
-  SetUserData(user: any) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
-      `users/${user.uid}`
-    );
-
-    const userData: User = {
-      uid: user.uid,
-      email: user.email,
-      emailVerified: user.emailVerified,
-    };
-
-    return userRef.set(userData, { merge: true });
+  private setUserData(user: User){
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+    return userRef.set(user);
   }
+
+  private getUserData(uid: string): Observable<User | null> {
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc<User>(`users/${uid}`);
+    return userRef.valueChanges().pipe(
+      map((userData: any) => userData || null)
+    );
+  }
+
+  storeUserDataInLocalStorage(user:User):void{
+    localStorage.setItem('user',JSON.stringify(user))
+  }
+
+  getCurrentUserFromLocalStorage():User | null {
+    const userData = localStorage.getItem('user');
+    return userData ? JSON.parse(userData) : null;
+  }
+
+
 
   // Sign out
   SignOut() {

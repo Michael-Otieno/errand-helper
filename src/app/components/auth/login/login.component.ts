@@ -23,7 +23,10 @@ export class LoginComponent {
     const email:string = frm.email!
     const password:string = frm.password!
 
-    this.authService.SignIn(email, password);
+    this.authService.SignIn(email, password)
+    .then((user) =>{
+      this.authService.storeUserDataInLocalStorage(user!)
+    })
 
   }
   loginWithGoogle(){
