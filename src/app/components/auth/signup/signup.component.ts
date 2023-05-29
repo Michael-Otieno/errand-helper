@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import {
-  FormControl,
   FormBuilder,
-  FormGroup,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -26,7 +24,7 @@ export class SignupComponent {
   constructor(
     private fb: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private route: Router
   ) {}
 
   register() {
@@ -37,13 +35,12 @@ export class SignupComponent {
       lastName:frm.lastName!,
       email: frm.email!,
       terms:frm.terms!,
+      emailVerified:false,
       password:frm.password!,
-      confirmPassword:frm.confirmPassword!
-
-
     };
 
-    this.authService.SignUp(user)
+    this.authService.signUp(user)
+    this.route.navigateByUrl('/login');
   }
 
 
