@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <div class="settings">
   <h1>Settings</h1>
-  <div class="profile">
+  <div class="profile" *ngIf="user">
     <div class="profile-links">
       <p><a routerLink="/profile" routerLinkActive="active">Profile</a></p>
       <p> <a routerLink="/notifications" routerLinkActive="active">Notifications</a> </p>
@@ -13,15 +13,15 @@
         <div class="inputs">
           <label for="names">Full name: </label>
           <div class="input-names">
-            <input type="text">
-            <input type="text">
+            <input type="text" [placeholder]="user.lastName">
+            <input type="text" [placeholder]="user.firstName">
           </div>
         </div>
         <!-- email -->
         <div class="inputs">
           <label for="email">Email: </label>
           <div class="input-email">
-            <input type="text">
+            <input type="text" [placeholder]="user.email">
           </div>
         </div>
         <!-- phone -->
