@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { User } from 'src/app/interfaces/user.interface';
 import * as auth from '@firebase/auth';
+import { Observable, BehaviorSubject, map } from 'rxjs';
+
 
 import {
   AngularFirestore,
@@ -13,7 +15,13 @@ import { Router } from '@angular/router';
   providedIn: 'root',
 })
 export class AuthService {
+
+  private currentUserSubject: BehaviorSubject<User | null> = new BehaviorSubject<User | null>(null);
+  public currentUser$: Observable<User | null> = this.currentUserSubject.asObservable();
+
+
   userData: any;
+
 
   constructor(
     private afs: AngularFirestore,
@@ -22,11 +30,11 @@ export class AuthService {
   ) {
     this.afa.authState.subscribe((user) => {
       if (user) {
-        this.userData = user;
-        localStorage.setItem('user', JSON.stringify(this.userData));
-        JSON.parse(localStorage.getItem('user')!);
+        this.getUserData(user.uid).subscribe((userData) => {
+          this.currentUserSubject.next(userData);
+        });
       } else {
-        localStorage.removeItem('user');
+        this.currentUserSubject.next(null);
       }
     });
   }
@@ -39,7 +47,7 @@ export class AuthService {
         // this.setUserData(res.credential);
         this.afa.authState.subscribe((user) => {
           if (user) {
-            this.route.navigateByUrl('/');
+            this.route.navigateByUrl('/profile');
           }
         });
       })
@@ -47,6 +55,8 @@ export class AuthService {
         console.error(err);
       });
   }
+
+
 
   async signUp(user: User): Promise<void> {
     try {
@@ -106,8 +116,26 @@ export class AuthService {
 
   private setUserData(user: User){
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
-    return userRef.set(user, { merge: true });
+    return userRef.set(user);
   }
+
+  private getUserData(uid: string): Observable<User | null> {
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc<User>(`users/${uid}`);
+    return userRef.valueChanges().pipe(
+      map((userData: any) => userData || null)
+    );
+  }
+
+  storeUserDataInLocalStorage(user:User):void{
+    localStorage.setItem('user',JSON.stringify(user))
+  }
+
+  getCurrentUserFromLocalStorage():User | null {
+    const userData = localStorage.getItem('user');
+    return userData ? JSON.parse(userData) : null;
+  }
+
+
 
   // Sign out
   SignOut() {
